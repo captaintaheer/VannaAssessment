@@ -1,4 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 
 export interface Video {
   url: string;
@@ -14,8 +20,17 @@ export interface Video {
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
-  // title = 'vanaAssessment';
+export class AppComponent implements OnInit {
+  @ViewChild('myVideo') myVideo: ElementRef;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  playVideo() {
+    this.myVideo.nativeElement.play();
+  }
+
   videos: Video[] = [
     {
       url: 'One',
