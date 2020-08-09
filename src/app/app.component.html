@@ -1,2 +1,21 @@
-<h1>Vanna.com</h1>
+<div layout="row" class="theme" layout-align="center center">
+  <h1>Vanna.com</h1>
+</div>
+<div class="app">
+  <div class="working-area">
+    <div class="video" *ngFor="let video of videos">
+      <div
+        class="video__player"
+        loop
+        onClick="{onVideoPress}"
+        ref="{videoRef}"
+        src="{url}"
+      >
+        {{ video }}
+        <h1>{{ video.description }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
