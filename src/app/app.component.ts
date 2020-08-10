@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  playVideo() {
+  playVideo(event: any) {
     this.myVideo.nativeElement.play();
   }
 
