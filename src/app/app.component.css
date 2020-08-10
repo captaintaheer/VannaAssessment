@@ -83,20 +83,6 @@ html {
   right: 20px;
 }
 
-.videoFooter__icon {
-  position: absolute;
-}
-
-.videoFooter__ticker > .ticker {
-  height: fit-content;
-  margin-left: 30px;
-  width: 60%;
-}
-
-.videoFooter__ticker h1 {
-  padding-top: 7px;
-}
-
 @keyframes spinTheRecord {
   from {
     transform: rotate(0deg);

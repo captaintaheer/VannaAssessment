@@ -3,7 +3,7 @@
 </div> -->
 <div class="app">
   <div class="working-area">
-    <div class="video" *ngFor="let video of videos">
+    <div class="video" *ngFor="let video of videos | async">
       <div>
         <video
           class="video-player"
@@ -14,7 +14,7 @@
         ></video>
         <div class="videoFooter">
           <div class="">
-            <h3>@tahirOlaosebikan</h3>
+            <h3>{{ video.channel }}</h3>
             <p>{{ video.description }}</p>
           </div>
 
@@ -28,15 +28,15 @@
         <div class="videoSidebar">
           <div class="videoSidebar__button">
             <mat-icon>favorite_border</mat-icon>
-            <p>34</p>
+            <p>{{ video.likes }}</p>
           </div>
           <div class="videoSidebar__button">
             <mat-icon> insert_comment</mat-icon>
-            <p>34</p>
+            <p>{{ video.messages }}</p>
           </div>
           <div class="videoSidebar__button">
             <mat-icon>share</mat-icon>
-            <p>34</p>
+            <p>{{ video.shares }}</p>
           </div>
         </div>
       </div>
