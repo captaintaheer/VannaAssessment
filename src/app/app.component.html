@@ -7,27 +7,31 @@
       <div>
         <video
           class="video-player"
-          controls
           loop
           #myVideo
+          (click)="onPlayingVideo($event)"
           src="{{ video.url }}"
         ></video>
+        <div class="videoHeader">
+          <h4>Following | <b>For You</b></h4>
+        </div>
         <div class="videoFooter">
           <div class="">
             <h3>{{ video.channel }}</h3>
-            <p>{{ video.description }}</p>
+            <h5>{{ video.description }}</h5>
           </div>
 
           <img
             class="videoFooter__record"
-            src="https://static.thenounproject.com/png/934821-200.png"
+            src="{{ video.recordIcon }}"
             alt=""
           />
         </div>
 
         <div class="videoSidebar">
+          <img class="avatar" src="{{ video.avatar }}" alt="" />
           <div class="videoSidebar__button">
-            <mat-icon>favorite_border</mat-icon>
+            <mat-icon>favorite</mat-icon>
             <p>{{ video.likes }}</p>
           </div>
           <div class="videoSidebar__button">

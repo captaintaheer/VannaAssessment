@@ -9,14 +9,15 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
+import * as firebase from 'firebase/app';
 
 export interface Video {
   url: string;
   channel: string;
   description: string;
-  likes: string;
-  messages: string;
-  shares: string;
+  likes: number;
+  messages: number;
+  shares: number;
 }
 
 @Component({
@@ -36,9 +37,19 @@ export class AppComponent {
   ngOnInit(): void {
     this.videosCol = this.db.collection('videos');
     this.videos = this.videosCol.valueChanges();
+    firebase.analytics();
   }
-
-  playVideo(event: any) {
-    this.myVideo.nativeElement.play();
+  onPlayingVideo(event: any) {
+    // play the first video that is chosen by the user
+    if (this.myVideo.nativeElement === event.target) {
+      this.myVideo.nativeElement.play();
+    } else {
+      // if the user plays a new video, pause the last one and play the new one
+      if (event.target !== this.myVideo.nativeElement) {
+        this.myVideo.nativeElement.pause();
+        this.myVideo.nativeElement = event.target;
+        this.myVideo.nativeElement.play();
+      }
+    }
   }
 }

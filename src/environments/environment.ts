@@ -13,6 +13,7 @@ export const environment = {
     storageBucket: 'vanna-test-45cc3.appspot.com',
     messagingSenderId: '1031929526327',
     appId: '1:1031929526327:web:ec1ba62223914c863b67b2',
+    measurementId: 'G-84YLMTG2FN',
   },
 };
 
