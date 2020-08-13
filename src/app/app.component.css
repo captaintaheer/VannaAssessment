@@ -107,12 +107,15 @@ html {
 
 .videoSidebar__button {
   padding: 20px;
-  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .mat-icon {
-  font-size: 40px;
+  height: 40px !important;
+  width: 40px !important;
+  font-size: 40px !important;
 }
-
 .avatar {
   width: 70px;
   height: 70px;
