@@ -10,6 +10,7 @@ import {
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
 import * as firebase from 'firebase/app';
+import { AngularFirePerformance } from '@angular/fire/performance';
 
 export interface Video {
   url: string;
@@ -37,7 +38,18 @@ export class AppComponent {
   ngOnInit(): void {
     this.videosCol = this.db.collection('videos');
     this.videos = this.videosCol.valueChanges();
-    firebase.analytics();
+  }
+  //How many videos did user read in a collection and how long did it take?
+  //incrementMetric method is especially useful if you want to keep a running count of a value during the trace.
+  async loadUserData() {
+    const perf = firebase.performance();
+    const trace = perf.trace('videosQuery');
+    trace.start();
+
+    const videos = this.db.collection('videos').get();
+    trace.incrementMetric('collectionSize', this.myVideo.nativeElement.size);
+
+    trace.stop();
   }
 
   onPlayingVideo(event: any) {

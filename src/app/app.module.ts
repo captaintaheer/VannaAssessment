@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirePerformanceModule } from '@angular/fire/performance';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,7 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
     NgbModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'vanna-test'),
-
+    AngularFirePerformanceModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
