@@ -39,6 +39,7 @@ export class AppComponent {
     this.videos = this.videosCol.valueChanges();
     firebase.analytics();
   }
+
   onPlayingVideo(event: any) {
     // play the first video that is chosen by the user
     if (this.myVideo.nativeElement === event.target) {

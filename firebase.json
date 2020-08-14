@@ -1,0 +1,15 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "dist/vanaAssessment",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  },
+  "rewrites": [
+    {
+      "source": "**",
+      "destination": "dist/vanaAssessment/index.html"
+    }
+  ]
+}
