@@ -3,6 +3,7 @@ import {
   ViewEncapsulation,
   ViewChild,
   ElementRef,
+  HostListener,
 } from '@angular/core';
 import {
   AngularFirestore,
@@ -52,16 +53,26 @@ export class AppComponent {
     trace.stop();
   }
 
+  playVideo() {
+    if (this.myVideo.nativeElement.playing) {
+      this.myVideo.nativeElement.pause();
+      this.myVideo.nativeElement.playing = false;
+    } else {
+      this.myVideo.nativeElement.play();
+      this.myVideo.nativeElement.playing = true;
+    }
+  }
+
   onPlayingVideo(event: any) {
     // play the first video that is chosen by the user
     if (this.myVideo.nativeElement === event.target) {
-      this.myVideo.nativeElement.play();
+      this.playVideo();
     } else {
       // if the user plays a new video, pause the last one and play the new one
       if (event.target !== this.myVideo.nativeElement) {
         this.myVideo.nativeElement.pause();
         this.myVideo.nativeElement = event.target;
-        this.myVideo.nativeElement.play();
+        this.playVideo();
       }
     }
   }
