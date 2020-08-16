@@ -1,2 +1,51 @@
-<h1>Vanna.com</h1>
+<!-- <div layout="row" class="theme" layout-align="center center">
+  <h1>Vanna.com</h1>
+</div> -->
+<div class="app">
+  <div class="working-area">
+    <div class="video" *ngFor="let video of videos | async">
+      <div>
+        <video
+          class="video-player"
+          loop
+          #myVideo
+          (click)="onPlayingVideo($event)"
+          src="{{ video.url }}"
+        ></video>
+        <div class="videoHeader">
+          <h4>Following | <b>For You</b></h4>
+        </div>
+        <div class="videoFooter">
+          <div class="">
+            <h3>{{ video.channel }}</h3>
+            <h5>{{ video.description }}</h5>
+          </div>
+
+          <img
+            class="videoFooter__record"
+            src="{{ video.recordIcon }}"
+            alt=""
+          />
+        </div>
+
+        <div class="videoSidebar">
+          <img class="avatar" src="{{ video.avatar }}" alt="" />
+          <div class="videoSidebar__button">
+            <mat-icon>favorite</mat-icon>
+            <p>{{ video.likes }}</p>
+          </div>
+          <div class="videoSidebar__button">
+            <mat-icon> insert_comment</mat-icon>
+            <p>{{ video.messages }}</p>
+          </div>
+          <div class="videoSidebar__button">
+            <mat-icon>share</mat-icon>
+            <p>{{ video.shares }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
