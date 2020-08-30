@@ -1,26 +1,78 @@
-[debug] [2020-08-13T10:38:00.841Z] ----------------------------------------------------------------------
-[debug] [2020-08-13T10:38:00.848Z] Command:       C:\Users\Tahir\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
-[debug] [2020-08-13T10:38:00.848Z] CLI Version:   8.7.0
-[debug] [2020-08-13T10:38:00.848Z] Platform:      win32
-[debug] [2020-08-13T10:38:00.849Z] Node Version:  v12.18.3
-[debug] [2020-08-13T10:38:00.854Z] Time:          Thu Aug 13 2020 18:38:00 GMT+0800 (Singapore Standard Time)
-[debug] [2020-08-13T10:38:00.855Z] ----------------------------------------------------------------------
-[debug] [2020-08-13T10:38:00.855Z] 
-[debug] [2020-08-13T10:38:00.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-08-13T10:38:00.913Z] > authorizing via signed-in user
+[debug] [2020-08-29T06:29:28.475Z] ----------------------------------------------------------------------
+[debug] [2020-08-29T06:29:28.489Z] Command:       C:\Users\Tahir\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-08-29T06:29:28.490Z] CLI Version:   8.7.0
+[debug] [2020-08-29T06:29:28.490Z] Platform:      win32
+[debug] [2020-08-29T06:29:28.491Z] Node Version:  v12.18.3
+[debug] [2020-08-29T06:29:28.831Z] Time:          Sat Aug 29 2020 14:29:28 GMT+0800 (Singapore Standard Time)
+[debug] [2020-08-29T06:29:28.833Z] ----------------------------------------------------------------------
+[debug] [2020-08-29T06:29:28.833Z] 
+[debug] [2020-08-29T06:29:28.966Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-29T06:29:28.969Z] > authorizing via signed-in user
+[debug] [2020-08-29T06:29:28.971Z] [iam] checking project alpine-run-258609 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2020-08-29T06:29:29.117Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-258609:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2020-08-29T06:29:32.261Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 29 Aug 2020 06:29:32 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1007","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-29T06:29:32.273Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/alpine-run-258609  
+ 
+[debug] [2020-08-29T06:29:32.688Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 29 Aug 2020 06:29:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
 [info] 
-     ######## #### ########  ######## ########     ###     ######  ########
-     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
-     ######    ##  ########  ######   ########  #########  ######  ######
-     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
-     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+[info] === Deploying to 'alpine-run-258609'...
+[info] 
+[info] i  deploying database, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2020-08-29T06:29:32.734Z] >>> HTTP REQUEST PUT https://alpine-run-258609.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": false,
+    ".write": false
+  }
+}
 
-You're about to initialize a Firebase project in this directory:
+[debug] [2020-08-29T06:29:33.557Z] <<< HTTP RESPONSE 404 {"server":"nginx","date":"Sat, 29 Aug 2020 06:29:33 GMT","content-type":"application/json; charset=utf-8","content-length":"101","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-08-29T06:29:33.558Z] <<< HTTP RESPONSE BODY {
+  "error" : "Firebase error. Please ensure that you spelled the name of your Firebase correctly"
+}
 
-  C:\users\tahir\vanaassessment
+[error] 
+[error] Error: Unexpected error while deploying database rules.
+[debug] [2020-08-29T06:36:13.440Z] ----------------------------------------------------------------------
+[debug] [2020-08-29T06:36:13.445Z] Command:       C:\Users\Tahir\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-08-29T06:36:13.445Z] CLI Version:   8.7.0
+[debug] [2020-08-29T06:36:13.446Z] Platform:      win32
+[debug] [2020-08-29T06:36:13.446Z] Node Version:  v12.18.3
+[debug] [2020-08-29T06:36:13.448Z] Time:          Sat Aug 29 2020 14:36:13 GMT+0800 (Singapore Standard Time)
+[debug] [2020-08-29T06:36:13.448Z] ----------------------------------------------------------------------
+[debug] [2020-08-29T06:36:13.449Z] 
+[debug] [2020-08-29T06:36:13.494Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-29T06:36:13.495Z] > authorizing via signed-in user
+[debug] [2020-08-29T06:36:13.496Z] [iam] checking project alpine-run-258609 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2020-08-29T06:36:13.502Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-08-29T06:36:13.503Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-08-29T06:36:14.708Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 29 Aug 2020 06:36:14 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-29T06:36:15.326Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-258609:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2020-08-29T06:36:16.580Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 29 Aug 2020 06:36:16 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1061","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-29T06:36:16.586Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/alpine-run-258609  
+ 
+[debug] [2020-08-29T06:36:17.768Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 29 Aug 2020 06:36:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'alpine-run-258609'...
+[info] 
+[info] i  deploying database, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2020-08-29T06:36:17.776Z] >>> HTTP REQUEST PUT https://alpine-run-258609.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": false,
+    ".write": false
+  }
+}
 
-Before we get started, keep in mind:
+[debug] [2020-08-29T06:36:18.710Z] <<< HTTP RESPONSE 404 {"server":"nginx","date":"Sat, 29 Aug 2020 06:36:18 GMT","content-type":"application/json; charset=utf-8","content-length":"101","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-08-29T06:36:18.711Z] <<< HTTP RESPONSE BODY {
+  "error" : "Firebase error. Please ensure that you spelled the name of your Firebase correctly"
+}
 
-  * You are currently outside your home directory
-  * You are initializing in an existing Firebase project directory
-
+[error] 
+[error] Error: Unexpected error while deploying database rules.

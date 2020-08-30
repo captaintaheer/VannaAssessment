@@ -3,25 +3,30 @@ import {
   ViewEncapsulation,
   ViewChild,
   ElementRef,
-  HostListener,
 } from '@angular/core';
 import {
-  AngularFirestore,
   AngularFirestoreCollection,
+  AngularFirestore,
 } from '@angular/fire/firestore';
+
+import {
+  SwiperConfigInterface,
+  SwiperComponent,
+  SwiperScrollbarInterface,
+  SwiperPaginationInterface,
+  SwiperDirective,
+} from 'ngx-swiper-wrapper';
 import { Observable } from 'rxjs/internal/Observable';
-import * as firebase from 'firebase/app';
-import { AngularFirePerformance } from '@angular/fire/performance';
 
 export interface Video {
   url: string;
-  channel: string;
   description: string;
   likes: number;
   messages: number;
   shares: number;
+  avatar: string;
+  channel: string;
 }
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,10 +34,14 @@ export interface Video {
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  @ViewChild('myVideo') myVideo: ElementRef;
+  public show: boolean = true;
 
   videosCol: AngularFirestoreCollection<Video>;
   videos: Observable<Video[]>;
+
+  @ViewChild(SwiperComponent, { static: false }) componentRef?: SwiperComponent;
+  @ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
+  @ViewChild('myVideo') myVideo: ElementRef;
 
   constructor(private db: AngularFirestore) {}
 
@@ -40,17 +49,72 @@ export class AppComponent {
     this.videosCol = this.db.collection('videos');
     this.videos = this.videosCol.valueChanges();
   }
-  //How many videos did user read in a collection and how long did it take?
-  //incrementMetric method is especially useful if you want to keep a running count of a value during the trace.
-  async loadUserData() {
-    const perf = firebase.performance();
-    const trace = perf.trace('videosQuery');
-    trace.start();
 
-    const videos = this.db.collection('videos').get();
-    trace.incrementMetric('collectionSize', this.myVideo.nativeElement.size);
+  public type: string = 'directive';
 
-    trace.stop();
+  public disabled: boolean = false;
+
+  public config: SwiperConfigInterface = {
+    a11y: true,
+    direction: 'vertical',
+    grabCursor: true,
+    simulateTouch: true,
+    passiveListeners: true,
+    slidesPerView: 1,
+    keyboard: true,
+    mousewheel: true,
+    scrollbar: false,
+    navigation: true,
+    pagination: false,
+  };
+
+  private scrollbar: SwiperScrollbarInterface = {
+    el: '.swiper-scrollbar',
+    hide: false,
+    draggable: true,
+  };
+
+  private pagination: SwiperPaginationInterface = {
+    el: '.swiper-pagination',
+    clickable: true,
+    hideOnClick: false,
+  };
+
+  public toggleType(): void {
+    this.type = this.type === 'component' ? 'directive' : 'component';
+  }
+
+  public toggleDisabled(): void {
+    this.disabled = !this.disabled;
+  }
+
+  public toggleDirection(): void {
+    this.config.direction =
+      this.config.direction === 'horizontal' ? 'vertical' : 'horizontal';
+  }
+
+  public toggleSlidesPerView(): void {
+    if (this.config.slidesPerView !== 1) {
+      this.config.slidesPerView = 1;
+    } else {
+      this.config.slidesPerView = 2;
+    }
+  }
+
+  public toggleKeyboardControl(): void {
+    this.config.keyboard = !this.config.keyboard;
+  }
+
+  public toggleMouseWheelControl(): void {
+    this.config.mousewheel = !this.config.mousewheel;
+  }
+
+  public onIndexChange(index: number): void {
+    console.log('Swiper index: ', index);
+  }
+
+  public onSwiperEvent(event: string): void {
+    console.log('Swiper event: ', event);
   }
 
   playVideo() {
